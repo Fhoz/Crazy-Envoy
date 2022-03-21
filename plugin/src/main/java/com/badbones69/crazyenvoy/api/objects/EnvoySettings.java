@@ -3,11 +3,17 @@ package com.badbones69.crazyenvoy.api.objects;
 import com.badbones69.crazyenvoy.api.FileManager.Files;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+import com.badbones69.crazyenvoy.CrazyEnvoy;
 
 import java.util.List;
 
 public class EnvoySettings {
     
+    public static JavaPlugin getJavaPlugin() {
+        return JavaPlugin.getPlugin(CrazyEnvoy.class);
+    }
+
     private static final EnvoySettings instance = new EnvoySettings();
     
     private boolean isFallingBlocksEnabled;
@@ -135,11 +141,11 @@ public class EnvoySettings {
     }
     
     public int getMinCrates() {
-        return this.minCrates;
+        return getJavaPlugin().getServer().getOnlinePlayers().size() * 2;
     }
     
     public int getMaxCrates() {
-        return maxCrates;
+        return getJavaPlugin().getServer().getOnlinePlayers().size() * 2;
     }
     
     public EnvoySettings setMaxCrates(int maxCrates) {
