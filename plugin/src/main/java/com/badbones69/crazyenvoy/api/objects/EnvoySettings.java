@@ -145,7 +145,7 @@ public class EnvoySettings {
     }
     
     public int getMaxCrates() {
-        return getJavaPlugin().getServer().getOnlinePlayers().size() * 2;
+        return 20;
     }
     
     public EnvoySettings setMaxCrates(int maxCrates) {
